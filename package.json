@@ -1,0 +1,8 @@
+{
+  "name": "flexearch",
+  "version": "0.1.0",
+  "description": "A more flexible (and powerful) than native search (extension) for chromium-based desktop browsers.",
+  "repository": "git@github.com:dbautistav/flexearch.git",
+  "author": "github.com/dbautistav",
+  "license": "GPL-3.0"
+}
