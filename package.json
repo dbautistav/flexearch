@@ -21,6 +21,7 @@
     "webpack-dev-server": "^2.4.2"
   },
   "scripts": {
+    "build": "NODE_ENV=production webpack --config ./config/webpack/webpack.config.js",
     "start": "webpack-dev-server --config ./config/webpack/webpack.config.js"
   }
 }

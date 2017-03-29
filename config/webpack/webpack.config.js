@@ -1,6 +1,7 @@
 "use strict";
 
 var _ = require("lodash");
+var path = require("path");
 var webpack = require("webpack");
 
 var HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -9,12 +10,9 @@ var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var LoaderOptionsPlugin = webpack.LoaderOptionsPlugin;
 var tsLintConfigObj = require("./common").tsLintConfigObj;
 
+var env = process.env.NODE_ENV || "development";
+
 var clientConfigObj = {
-  devServer: {
-    host: "0.0.0.0",
-    port: 8080
-  },
-  devtool: "eval-source-map",
   entry: {
     "main": "./src/main.ts"
   },
@@ -52,11 +50,10 @@ var clientConfigObj = {
     ]
   },
   name: "client",
-  output: {
+  output: _.extend({
     chunkFilename: "[id].chunk.js",
     filename: "[name].js"
-    // path: "dist"
-  },
+  }, (env === "development") ? {} : { path: path.resolve(__dirname, "../../dist") }),
   plugins: [
     new CommonsChunkPlugin({
       name: "main"
@@ -79,4 +76,12 @@ var clientConfigObj = {
   target: "web"
 };
 
-module.exports = clientConfigObj;
+var devOpts = {
+    devServer: {
+        host: "0.0.0.0",
+        port: 8080
+    },
+    devtool: "eval-source-map"
+};
+
+module.exports = _.extend({}, clientConfigObj, (env === "development") ? devOpts : {});
