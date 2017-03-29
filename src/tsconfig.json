@@ -2,6 +2,7 @@
   "buildOnSave": false,
   "compileOnSave": false,
   "compilerOptions": {
+    "inlineSourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "lib": [
@@ -10,12 +11,10 @@
       "es6",
       "scripthost"
     ],
-    "mapRoot": "./",
     "module": "es6",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noImplicitAny": false,
-    "sourceMap": true,
     "target": "es5",
     "types": [
       "node"

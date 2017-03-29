@@ -14,18 +14,10 @@ var clientConfigObj = {
     host: "0.0.0.0",
     port: 8080
   },
-
-  // devtool: "source-map",
   devtool: "eval-source-map",
-  // devtool: "cheap-module-eval-source-map",
-
-  //  TODO: enable this for 'production' ENV
   entry: {
     "main": "./src/main.ts"
-    // "polyfills": "./src/polyfills.ts",
-    // "vendor": "./src/vendor.ts"
   },
-
   module: {
     rules: [
       {
@@ -59,32 +51,20 @@ var clientConfigObj = {
       // // { test: /\.png$/, loader: "url-loader?mimetype=image/png" }
     ]
   },
-
   name: "client",
-
-  /**
-   * Output
-   * Reference: http://webpack.github.io/docs/configuration.html#output
-   */
   output: {
     chunkFilename: "[id].chunk.js",
     filename: "[name].js"
     // path: "dist"
   },
-
   plugins: [
     new CommonsChunkPlugin({
-      //  TODO: enable this for 'production' ENV
-      // name: ["main", "polyfills", "vendor"]
       name: "main"
     }),
     new HtmlWebpackPlugin({
         template: "./src/index.html"
     }),
-    // //  cf.: https://github.com/TypeStrong/ts-loader
-    // //  cf.: https://github.com/wbuchwalter/tslint-loader
     new LoaderOptionsPlugin({
-      // debug: false,
       options: {
         tslint: _.merge({
           configFile: "./src/tslint.json"
@@ -93,11 +73,9 @@ var clientConfigObj = {
       test: /\.ts$/
     })
   ],
-
   resolve: {
     extensions: [".ts", ".js"]
   },
-
   target: "web"
 };
 
