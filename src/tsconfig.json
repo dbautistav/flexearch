@@ -1,0 +1,42 @@
+{
+  "buildOnSave": false,
+  "compileOnSave": false,
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "dom",
+      "es5",
+      "es6",
+      "scripthost"
+    ],
+    "mapRoot": "./",
+    "module": "es6",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "target": "es5",
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "../../node_modules/@types"
+    ]
+  },
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.e2e.js",
+    "**/*.spec.js",
+    "**/*.test.js",
+    "**/__tests__/*.js",
+    "**/*.d.ts",
+    "**/*.e2e.ts",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/__tests__/*.ts"
+  ]
+}
